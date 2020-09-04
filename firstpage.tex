@@ -1,0 +1,75 @@
+\label{form_first}
+
+\newcommand{\logoEtt}{blank}																%% NE PAS MODIFIER / DO NOT MODIFY
+\newcommand{\vpostt}{0.1} 																	%% NE PAS MODIFIER / DO NOT MODIFY
+\newcommand{\hpostt}{6}																		%% NE PAS MODIFIER / DO NOT MODIFY
+\newcommand{\logoEt}{etab} 																	%% Logo de l'établissement de soutenance. Indiquer le sigle / Institution logo. Indicate the acronym : AGRO, CENTSUP, ENS, ENSAE, ENSTA, HEC, IOGS, TPT, TSP, UEVE, UPSUD, UVSQ, X 
+\newcommand{\vpos}{0.1}																		%% À modifier au besoin pour aligner le logo verticalement / If needed, modify to align logo vertilcally
+\newcommand{\hpos}{11}																		%% À modifier au besoin pour aligner le logo horizontalement / If needed, modify to align logo horizontaly
+
+\label{layout_first}
+
+\thispagestyle{empty}
+
+\includegraphics[width=0.35\textwidth]{eurecom/sorbonne_logo} \hfill
+\includegraphics[width=0.35\textwidth]{eurecom/eurecom_logo} 
+
+\begin{singlespace}
+\centering	
+    \bigskip
+
+    \vfill
+    {\textbf{THESE DE DOCTORAT DE\\SORBONNE UNIVERSITE}} \\
+    \small{préparée à EURECOM} \\ \bigskip
+		\vfill
+    \normalsize{École doctorale EDITE de Paris n$^{\circ}$ ED130}\\
+		
+		\normalsize{Spécialité: \guillemotleft{Informatique, Télécommunications et Électronique}\guillemotright} \bigskip %% Spécialité 
+		\vfill  
+
+    \normalsize{Sujet de la thèse:}
+    \vfill
+		\huge{\PhDTitle} \bigskip 
+    
+    \normalsize{Thèse présentée et soutenue à Biot, le 31/07/2020, par}
+		\vfill
+		\Large{\textsc{\PhDname}}
+    \vfill
+    \bigskip
+	
+	\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+	\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}lm{#1}}
+	
+	
+  \begin{flushleft}
+  %\small
+  %{devant le jury composé de:}
+  %  \vfill
+
+  \small
+  \centering
+    \begin{tabular}{@{} L{3cm} R{4.5cm} R{4.5cm}}
+  Président          & Prof. XXXX                  & EURECOM                           \\[5pt]  
+                     &                             &                                   \\[5pt]
+  Rapporteurs        & Prof. XXXX                  & XXXX                              \\[5pt]  
+                     & Prof. XXXX                  & XXXX                              \\[5pt]
+                     &                             &                                   \\[5pt]
+  Examinateurs       & XXXX                        & XXXX                              \\[5pt] 
+                     & XXXX                        & XXXX                              \\[5pt] 
+                     & XXXX                        & XXXX                              \\[5pt] 
+                     & XXXX                        & XXXX                              \\[5pt]  
+                     &                             &                                   \\[5pt]
+  Directeur de thèse & Prof. XXXX                  & EURECOM                           \\[5pt]   
+	\end{tabular} 
+  \end{flushleft} 
+
+\end{singlespace}
+
+\bigskip
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.2\textwidth]{eurecom/cc_by-nc-nd} 
+\end{figure}
+
+\afterpage{\blankpage}

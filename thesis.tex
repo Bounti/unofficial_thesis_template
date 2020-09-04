@@ -1,0 +1,293 @@
+%author: Corteggiani Nassim
+
+\documentclass{eurecom/ntnuthesis}
+
+%
+% Configure Document Class
+%
+\title{OFFICIAL THESIS TITLE}
+\subtitle{subtitle}
+\author{AUTHOR NAME}
+\def \thesisAuthor{AUTHOR NAME}
+\degreetype{Ph.D.}
+\faculty{EURECOM}
+\department{Digital Security Department}
+\copyrightnotice{All rights reserved}
+\isbnprinted{}
+\isbnelectronic{}
+\serialnumber{}
+\setyear{2020}
+\setmonth{\MONTH}
+
+%
+% Include packages
+%
+\usepackage[T1]{fontenc}
+\usepackage[scientific-notation=true]{siunitx}
+\usepackage{style-files/watermark}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tabularx}
+\usepackage{acronym}
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{lscape}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage{url}
+\usepackage[percent]{overpic}
+\usepackage{algpseudocode,amsmath,xifthen}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{pifont}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tikz,pgfplots}
+\usepackage{hyperref}
+\usepackage{pgfplotstable}
+\usepackage{filecontents}
+\usepackage{fontawesome}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{bchart}
+\usetikzlibrary{pgfplots.groupplots}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage[toc,page]{appendix}
+\usepackage{enumitem,booktabs,cfr-lm}
+\usepackage[referable]{threeparttablex}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{setspace}
+\usepackage{afterpage}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+
+% configure table notes
+\renewlist{tablenotes}{enumerate}{1}
+\makeatletter
+\setlist[tablenotes]{label=\tnote{\alph*},ref=\alph*,itemsep=\z@,topsep=\z@skip,partopsep=\z@skip,parsep=\z@,itemindent=\z@,labelindent=\tabcolsep,labelsep=.2em,leftmargin=*,align=left,before={\footnotesize}}
+\makeatother
+
+% set font size for algorithm2e
+\SetAlFnt{\small\sffamily}
+
+
+%
+% Customize page format
+%
+% turn of those nasty overfull and underfull hboxes
+\hbadness=10000
+\hfuzz=50pt
+\hypersetup{colorlinks=true,citecolor=blue,linkcolor=black,urlcolor=blue}
+\makeatletter
+%\def\url@leostyle{%
+%  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+% Remember part title for nameref
+\let\oldpart\part
+\def\part#1{\def\@currentlabelname{#1}\oldpart{#1}}
+\makeatother
+%% Now actually use the newly defined style.
+%\urlstyle{leo}
+
+%
+% Declare commands
+%
+\DeclareRobustCommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1.2pt] (char) {#1};}}
+\newcommand\rot[1]{\multicolumn{1}{l}{\rlap{\rotatebox{90}{#1}~}}}
+%\newcommand\rotl[1]{\multicolumn{1}{l|}{\rlap{\rotatebox{90}{#1}~}}}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcolumntype{?}{!{\vrule width 1pt}}
+\DeclareRobustCommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\newcommand{\cmark}{\color{green}{\ding{51}}}
+\newcommand{\xmark}{\color{red}{\ding{55}}}
+\newcommand{\errplot}[1]{
+\begin{tikzpicture}[trim axis right]
+\begin{axis}[y=-\baselineskip,
+  scale only axis,
+  width=5cm,
+  enlarge y limits={abs=0.5},
+  axis y line*=middle,
+  ytick=\empty,
+  axis x line*=bottom,
+  xbar,
+  bar width=1.5ex,
+  xmin=0,
+  visualization depends on=x \as \rawx,
+  nodes near coords,
+  every node near coord/.style={
+    anchor=east,
+    shift={(axis direction cs:-\rawx,0)}
+  }
+ ]
+\addplot [draw=black, fill=red]
+table [x=duration,y expr=\coordindex]{#1};
+\end{axis}
+\end{tikzpicture}%
+}
+
+\definecolor{lightgray}{rgb}{.7,.7,.7}
+\definecolor{gray}{rgb}{.4,.4,.4}
+\definecolor{darkblue}{rgb}{0,0,.3}
+
+\lstset{
+	basicstyle=\ttfamily,
+	columns=fullflexible,
+	showstringspaces=false,
+	commentstyle=\color{gray}\upshape
+}
+
+\definecolor{forestgreen}{RGB}{34,139,34}
+\definecolor{orangered}{RGB}{239,134,64}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+
+\lstdefinestyle{XML} {
+	language=XML,
+	extendedchars=true, 
+	breaklines=true,
+	breakatwhitespace=true,
+	emph={},
+	emphstyle=\color{red},
+	basicstyle=\ttfamily,
+	columns=fullflexible,
+	commentstyle=\color{gray}\upshape,
+	morestring=[b]",
+	morecomment=[s]{<?}{?>},
+	morecomment=[s][\color{forestgreen}]{<!--}{-->},
+	keywordstyle=\color{orangered},
+	stringstyle=\ttfamily\color{black}\normalfont,
+	tagstyle=\color{darkblue}\bf,
+	morekeywords={attribute,xmlns,version,type,release},
+}
+
+\newcommand\todo[1]{\textcolor{red}{#1}}
+\def\comment{1} % set to 0 to disable
+\newcounter{af}
+\newcounter{nc}
+\newcommand{\af}[1]{\if\comment1\textcolor{green}{\{AF-\arabic{af}: #1\}}\addtocounter{af}{1}\fi}
+\newcommand{\nc}[1]{\if\comment1\textcolor{red}{\{NC-\arabic{nc}: #1\}}\addtocounter{nc}{1}\fi}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+
+\newenvironment{packed_enum}{
+\begin{enumerate}
+	\vspace*{-1}
+  	\setlength{\itemsep}{1pt}
+  	\setlength{\parskip}{0pt}
+  	\setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+% Thesis title
+\newcommand{\PhDTitle}{PhD TITLE}
+
+% Name
+\newcommand{\PhDname}{THESIS AUTHOR} 
+
+
+\begin{document}
+
+%
+% FIRST PAGE
+%
+\frontmatter
+\include{firstpage}
+\thispagestyle{empty}
+\cleardoublepage
+\pagenumbering{gobble}
+
+%
+% PREFACE
+%
+\chapter*{Preface}
+\input{acknowledgements}
+\newpage
+\thispagestyle{empty}
+%
+% SUMMARY IN FRENCH (15 pages)
+%
+\chapter*{R\'esum\'e}
+\input{abstract_fr}
+%
+% ABSTRACT
+%
+\chapter*{Abstract}
+\input{abstract}
+\cleardoublepage
+
+\newpage
+\thispagestyle{empty}
+\pagenumbering{roman}
+
+%
+% TABLE OF CONTENTS
+%
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\pagenumbering{gobble}
+
+%
+% LIST OF FIGURES
+%
+\listoffigures
+
+%
+% GLOSSARY
+%
+\chapter*{Glossary}
+\input{acronyms}
+
+\mainmatter
+
+%
+% CHAPTERS
+%
+
+\chapter{Introduction}
+\label{chap:introduction}
+\include{chapters/introduction}
+
+\chapter{Background}
+\label{chap:background}
+\include{chapters/background}
+
+\chapter{Chapter 1}
+\label{chap:chapter1}
+\include{chapters/chapter1}
+
+\chapter{Conclusion and Future Work}
+\label{chap:conclusion}
+\include{chapters/conclusion}
+
+\chapter{Résumé}
+\label{chap:summary_fr}
+\include{chapters/summary_fr}
+
+%
+% APPENDIX
+%
+\backmatter
+\appendix
+\include{appendix}
+
+%
+% BIBLIOGRAPHY
+%
+\bibliographystyle{abbrv}
+\renewcommand{\bibname}{References}
+\bibliography{thesis}
+
+\end{document}
+
